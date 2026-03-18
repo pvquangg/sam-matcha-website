@@ -239,7 +239,7 @@ function Admin() {
   };
 
   const fetchMenuAdmin = () => {
-    fetch('http://localhost:5000/api/menu')
+    fetch('https://sam-matcha-api.onrender.com/api/menu')
       .then(res => res.json())
       .then(data => setAdminMenu(data))
       .catch(err => console.log(err));
@@ -249,7 +249,7 @@ function Admin() {
   const handleDelete = async (id, categoryName) => {
     if (!window.confirm(`⚠️ CHÚ Ý: Xóa vĩnh viễn danh mục "${categoryName}" cùng toàn bộ món bên trong?`)) return;
     try {
-      await fetch(`http://localhost:5000/api/menu/${id}`, { method: 'DELETE' });
+      await fetch(`https://sam-matcha-api.onrender.com/api/menu/${id}`, { method: 'DELETE' });
       alert('✅ Đã xóa!');
       fetchMenuAdmin();
     } catch (error) { alert('Lỗi khi xóa!'); }
@@ -290,7 +290,7 @@ function Admin() {
   // 5. Lưu toàn bộ cục dữ liệu lên mây
   const handleSave = async () => {
     const method = editId ? 'PUT' : 'POST';
-    const url = editId ? `http://localhost:5000/api/menu/${editId}` : 'http://localhost:5000/api/menu';
+    const url = editId ? `https://sam-matcha-api.onrender.com/api/menu/${editId}` : 'https://sam-matcha-api.onrender.com/api/menu';
 
     try {
       await fetch(url, {
@@ -415,7 +415,7 @@ export default function App() {
   // --- BẮT ĐẦU ĐOẠN CODE THÊM MỚI ---
   const [menuData, setMenuData] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/api/menu')
+    fetch('https://sam-matcha-api.onrender.com/api/menu')
       .then(response => response.json())
       .then(data => {
         setMenuData(data);
