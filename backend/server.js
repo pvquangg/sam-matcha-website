@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-
 // Kích hoạt đọc file .env
 dotenv.config();
 
@@ -190,6 +189,6 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server đang chạy tại http://localhost:${PORT}`);
 });
-const cors = require('cors'); // Dòng này để trên cùng
+
 const app = express();
 app.use(cors()); // Dòng này phải nằm NGAY DƯỚI dòng const app = express()
